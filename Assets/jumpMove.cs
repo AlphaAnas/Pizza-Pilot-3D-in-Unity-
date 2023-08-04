@@ -1,11 +1,9 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class leftMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler //used to detect the inputs on UI elements
-                                                                              // i.e. button )
+public class jumpMove : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     public GameObject player;
     bool isPressed = false;
@@ -25,7 +23,7 @@ public class leftMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler //
     {
         if (isPressed)
         {
-            player.transform.Translate(Force * Time.deltaTime,0,0); // takes x,y and z to translate the player
+            player.transform.Translate(0,Force * Time.deltaTime, 0); // takes x,y and z to translate the player
         }
     }
 }
