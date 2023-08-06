@@ -1,0 +1,25 @@
+public class PlayerController : MonoBehaviour
+{
+    public ScoreboardManager scoreboardManager;
+
+    private int pizzaCount = 2;
+    private float healthPercentage = 100f;
+
+    void Update()
+    {
+        // Code to detect collision with obstacles and dog chase
+        // ...
+
+        if (collisionWithObstacle)
+        {
+            pizzaCount -= 1;
+            scoreboardManager.UpdatePizzaCount(pizzaCount);
+        }
+
+        if (dogChase)
+        {
+            healthPercentage = 0f;
+            scoreboardManager.UpdateHealth(healthPercentage);
+        }
+    }
+}
