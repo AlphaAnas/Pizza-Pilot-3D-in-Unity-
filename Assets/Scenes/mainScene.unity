@@ -660,6 +660,8 @@ GameObject:
   - component: {fileID: 232594189}
   - component: {fileID: 232594188}
   - component: {fileID: 232594187}
+  - component: {fileID: 232594191}
+  - component: {fileID: 232594192}
   m_Layer: 0
   m_Name: edgeCube
   m_TagString: Untagged
@@ -753,6 +755,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &232594191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232594186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625f7557a722f4a449fa296800547d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveL: 97
+  moveR: 100
+  laneNo: 2
+  horVelocity: 1
+  controlLocked: no
+--- !u!54 &232594192
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232594186}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &233721306
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,7 +3953,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.5154871
   m_Height: 6.3783436
@@ -3927,7 +3973,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveL: 97
   moveR: 100
+  laneNo: 2
   horVelocity: 0
+  controlLocked: no
 --- !u!1 &1010575161
 GameObject:
   m_ObjectHideFlags: 0
@@ -7636,7 +7684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1656887214
 MonoBehaviour:
   m_ObjectHideFlags: 0

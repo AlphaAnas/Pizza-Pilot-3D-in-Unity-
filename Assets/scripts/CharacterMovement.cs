@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] // this is used to save values of Enum as below
-
+// ------------INACTIVE -----------------------------//
 public enum SIDE {Left, Mid, Right }    // we made a new data type like int and its values are in braces
                                         // and can be called like SIDE value = SIDE.Left;
 public class CharacterMovement : MonoBehaviour
