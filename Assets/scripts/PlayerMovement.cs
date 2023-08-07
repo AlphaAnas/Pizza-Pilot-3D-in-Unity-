@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int laneNo = 2; 
     public float horVelocity = 0f;
-    public string controlLocked = "no";
+    public string controlLocked = "no";  // a lock - when player is swiped to a place then until he reaches his position-
+                                         // -swipe is locked
     // Start is called before the first frame update
     void Start()
     {
