@@ -2432,7 +2432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &567422088
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3897,11 +3897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4442292949824776, guid: eea16ef0f58854448aaa9db9257bc84b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.11
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 4442292949824776, guid: eea16ef0f58854448aaa9db9257bc84b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4442292949824776, guid: eea16ef0f58854448aaa9db9257bc84b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3951,7 +3951,7 @@ PrefabInstance:
     - target: {fileID: 111863857214503350, guid: eea16ef0f58854448aaa9db9257bc84b,
         type: 3}
       propertyPath: m_Animations.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 111863857214503350, guid: eea16ef0f58854448aaa9db9257bc84b,
         type: 3}
@@ -3963,6 +3963,11 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[1]
       value: 
       objectReference: {fileID: 7400000, guid: 16a7ff9113ccf714f83e200332b45ee5, type: 3}
+    - target: {fileID: 111863857214503350, guid: eea16ef0f58854448aaa9db9257bc84b,
+        type: 3}
+      propertyPath: m_Animations.Array.data[2]
+      value: 
+      objectReference: {fileID: 7400000, guid: ff9f545cddc6cca4abddee6cfefe9c00, type: 3}
     - target: {fileID: 111863857214503350, guid: eea16ef0f58854448aaa9db9257bc84b,
         type: 3}
       propertyPath: m_Animations.Array.data[5]
@@ -4070,12 +4075,12 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 1.5154871
-  m_Height: 7.35
+  m_Radius: 0.69
+  m_Height: 7.09
   m_Direction: 1
-  m_Center: {x: 0, y: 2.84, z: -0.21548712}
+  m_Center: {x: 0, y: 2.7, z: 0.02}
 --- !u!114 &999708997
 MonoBehaviour:
   m_ObjectHideFlags: 0

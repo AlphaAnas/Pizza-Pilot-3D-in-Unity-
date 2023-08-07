@@ -14,6 +14,7 @@ public class CharacterMovement : MonoBehaviour
     public bool swipeRight= false;
     public float XValue;
     private CharacterController m_char;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        swipeLeft= Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
+        //Debug.log("hello");
+        swipeLeft = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
         swipeRight = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
 
         if(swipeLeft)
