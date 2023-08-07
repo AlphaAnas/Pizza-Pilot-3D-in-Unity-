@@ -39,6 +39,16 @@ public class PlayerMovement : MonoBehaviour
             controlLocked = "yes";
         }
     }
+
+    // adding a pit 
+    void OnCollisionEnter(Collision other)
+
+    {
+        if(other.gameObject.tag=="Lethal") 
+        {
+            Destroy(gameObject);
+        }
+    }
     IEnumerator stopSlide()
     {
         yield return new WaitForSeconds(0.5f); // w8 for half a second
