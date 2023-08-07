@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,16 +25,16 @@ public class PlayerMovement : MonoBehaviour
 
         if((Input.GetKeyDown(moveL) && (laneNo>1)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
+            Debug.Log("left");
             horVelocity = -2;
-
             StartCoroutine(stopSlide());
             laneNo -= 1;
             controlLocked = "yes";
         }
         if ((Input.GetKeyDown(moveR) && (laneNo<3) && (controlLocked == "no"))) // it cannot move further right from first lane
         {
+            Debug.Log("right");
             horVelocity = 2;
-
             StartCoroutine(stopSlide()); // goto the below named function/ ENUMERATOR
             laneNo += 1;
             controlLocked = "yes";
@@ -44,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter(Collision other)
 
     {
-        if(other.gameObject.tag=="Lethal") 
+
+        if (other.gameObject.tag == "lethal")
         {
             Destroy(gameObject);
         }
