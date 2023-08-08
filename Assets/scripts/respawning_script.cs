@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class respawning_script : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject Obstacle;
     public float maxX;
     public float minX;
     public float maxY;
     public float minY;
+    public float maxZ; // New variable for max Z-axis value
+    public float minZ; // New variable for min Z-axis value
     public float TimeBetweenSpawn;
     private float SpawnTime;
-
-
 
     // Update is called once per frame
     void Update()
@@ -27,9 +26,12 @@ public class respawning_script : MonoBehaviour
 
     void spawn()
     {
-        float x = Random.Range(minX, maxY);
+        float x = Random.Range(minX, maxX);
         float y = Random.Range(minY, maxY);
+        float z = Random.Range(minZ, maxZ); // Generate random Z-axis value
 
-        Instantiate(Obstacle, transform.position + new Vector3(x, y, 0), transform.rotation);
+        Vector3 spawnPosition = new Vector3(x, y, z);
+
+        Instantiate(Obstacle, spawnPosition, Quaternion.identity);
     }
 }
