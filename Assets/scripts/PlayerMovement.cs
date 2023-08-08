@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public KeyCode moveL;
     public KeyCode moveR;
+  
 
     public int laneNo = 2; 
     public float horVelocity = 0f;
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("chal gya");
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         if((Input.GetKeyDown(moveL) && (laneNo>1)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
             Debug.Log("left");
-            horVelocity = -2;
+            horVelocity = -2f;
             StartCoroutine(stopSlide());
             laneNo -= 1;
             controlLocked = "yes";
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKeyDown(moveR) && (laneNo<3) && (controlLocked == "no"))) // it cannot move further right from first lane
         {
             Debug.Log("right");
-            horVelocity = 2;
+            horVelocity = 2f;
             StartCoroutine(stopSlide()); // goto the below named function/ ENUMERATOR
             laneNo += 1;
             controlLocked = "yes";
@@ -53,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator stopSlide()
     {
-        yield return new WaitForSeconds(0.5f); // w8 for half a second
+        Debug.Log("the below function worked");
+        yield return new WaitForSeconds(0.35f); // w8 for half a second
         horVelocity = 0f;            // stop the horizontal velocity
         controlLocked = "no";
     }
