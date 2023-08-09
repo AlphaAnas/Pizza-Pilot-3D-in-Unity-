@@ -22,7 +22,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(horVelocity, 0, 4);
+        GetComponent<Rigidbody>().velocity = new Vector3(horVelocity, GMscript.vertVelocity, 4); //we made a static variable in GM 
+                                                                                                 // script and are able to access it here
 
         if((Input.GetKeyDown(moveL) && (laneNo>1)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
@@ -56,6 +57,19 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("loaded");
             Destroy(other.gameObject); // destroy the object it collides with
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name== "rampbottomTrig")
+        {
+            GMscript.vertVelocity = 2;
+            Debug.Log(GMscript.vertVelocity);
+        }
+        if (other.gameObject.name == "ramptopTrig")
+        {
+            GMscript.vertVelocity = 0;
+            Debug.Log(GMscript.vertVelocity);
         }
     }
     IEnumerator stopSlide()
