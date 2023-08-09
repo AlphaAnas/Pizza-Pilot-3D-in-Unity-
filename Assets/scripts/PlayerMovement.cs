@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("chal gya");
+        
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
         if((Input.GetKeyDown(moveL) && (laneNo>1)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
             Debug.Log("left");
-            horVelocity = -2f;
+            horVelocity = -2.5f;
             StartCoroutine(stopSlide());
             laneNo -= 1;
             controlLocked = "yes";
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKeyDown(moveR) && (laneNo<3) && (controlLocked == "no"))) // it cannot move further right from first lane
         {
             Debug.Log("right");
-            horVelocity = 2f;
+            horVelocity = 2.5f;
             StartCoroutine(stopSlide()); // goto the below named function/ ENUMERATOR
             laneNo += 1;
             controlLocked = "yes";
@@ -49,7 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "lethal")
         {
-            Destroy(gameObject);
+            Destroy(gameObject);  // destroy the player
+        }
+        // if player collides with coin
+        if (other.gameObject.name == "Coin")
+        {
+            Debug.Log("loaded");
+            Destroy(other.gameObject); // destroy the object it collides with
         }
     }
     IEnumerator stopSlide()
