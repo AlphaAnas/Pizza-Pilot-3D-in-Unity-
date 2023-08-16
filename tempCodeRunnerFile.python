@@ -1,0 +1,60 @@
+def sumofoddlengthsubarrays(array):
+   # lst=[]
+    summ=0
+    for i in range(1,len(array),2): #for the numbr of ele being counted at a time
+        for  j in range(0,i):
+            lst=[]
+            for k in range(j,j+i):
+                if j+i<len(array):
+                    lst.append(array[k])
+            summ=summ+sum(lst)
+    return summ
+            
+                
+def seconds_intoxicated(array,duration):
+    total_seconds=0
+    for second_number in range(len(array)):
+        if second_number<=len(array)-2:
+            if array[second_number+1]<=array[second_number]+duration-1:
+                total_seconds=total_seconds+array[second_number+1]-1
+            else:
+                total_seconds=total_seconds+duration
+    return total_seconds+duration
+
+def matrix_maker(m,n):
+    matrix=[]
+    for row in range(m):
+        temp=[]
+        for row_ele in range(n):
+            temp.append(0)
+        matrix.append(temp)
+    return matrix
+
+def max_count(m,n,ops):
+    M=matrix_maker(m,n)
+    if m<len(ops):
+        for row in range(len(M)):
+            for column in range(len(M[row])):
+                if column==0:
+                    if 0<=row<ops[row][column]:
+                        M[row][column]+=1
+                if column==1:
+                    if 0<=column<ops[row][column]:
+                        M[row][column]+=1
+        return M
+
+
+
+    else:
+        for row in range(len(ops)):
+            for column in range(len(ops[row])):
+                if column==0:
+                    if 0<=row<ops[row][column]:
+                        M[row][column]+=1
+                if column==1:
+                    if 0<=column<ops[row][column]:
+                        M[row][column]+=1
+        return M
+
+                        
+print(max_count(3,3,[[2,2],[3,]]))
