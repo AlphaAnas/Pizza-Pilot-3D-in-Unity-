@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Walking_script : MonoBehaviour
 {
 
     //we didnt need start this time so deleted it
@@ -20,6 +20,7 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 currentWaypointIndex = 0;//to switch back to the first waypoint if we are on the last one
             }
+            transform.Rotate(Vector3.up, 180f);
         }
 
 
