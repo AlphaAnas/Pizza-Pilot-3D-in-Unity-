@@ -23,21 +23,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(horVelocity, 0, 4); //we made a static variable in GM 
+        GetComponent<Rigidbody>().velocity = new Vector3(horVelocity,GMscript.vertVelocity, 7); //we made a static variable in GM 
                                                                                                  // script and are able to access it here
 
-        if((Input.GetKeyDown(moveL) && (laneNo>1)&&(controlLocked =="no"))) // it cannot move further left from first lane
+        if((Input.GetKeyDown(moveL) && (laneNo>-10)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
             Debug.Log("left");
-            horVelocity = -2.5f;
+            horVelocity = -5f;
             StartCoroutine(stopSlide());
             laneNo -= 1;
             controlLocked = "yes";
         }
-        if ((Input.GetKeyDown(moveR) && (laneNo<3) && (controlLocked == "no"))) // it cannot move further right from first lane
+        if ((Input.GetKeyDown(moveR) && (laneNo<10) && (controlLocked == "no"))) // it cannot move further right from first lane
         {
             Debug.Log("right");
-            horVelocity = 2.5f;
+            horVelocity = 5f;
             StartCoroutine(stopSlide()); // goto the below named function/ ENUMERATOR
             laneNo += 1;
             controlLocked = "yes";
@@ -52,12 +52,14 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "lethal")
         {
             Destroy(gameObject);  // destroy the player
+            GMscript.zValueAdjustment = 0;
         }
         // if player collides with coin
         if (other.gameObject.name == "Coin")
         {
             Debug.Log("loaded");
             Destroy(other.gameObject); // destroy the object it collides with
+            GMscript.coinTotal += 1;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -77,11 +79,24 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Yeh xhala hei");
             SceneManager.LoadScene("LevelComplete");
         }
+        if (other.gameObject.name == "roadstartTrig")
+                {
+            GMscript.vertVelocity = 0;
+
+        }
+        if (other.gameObject.name=="rampEndTrig")
+        {
+            GMscript.vertVelocity = -2;
+        }
+        if (other.gameObject.name == "puddle")
+        {
+            Debug.Log("Add puddle script here");
+        }
     }
     IEnumerator stopSlide()
     {
         Debug.Log("the below function worked");
-        yield return new WaitForSeconds(0.35f); // w8 for half a second
+        yield return new WaitForSeconds(0.25f); // w8 for half a second
         horVelocity = 0f;            // stop the horizontal velocity
         controlLocked = "no";
     }
