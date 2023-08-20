@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(gameObject);  // destroy the player
             GMscript.zValueAdjustment = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
+            GMscript.gameCompStatus = "Failed";
         }
         // if player collides with coin
         if (other.gameObject.name == "Coin")
@@ -79,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(other.gameObject.name == "gameEndTrig")
         {
-            Debug.Log("Yeh xhala hei");
+            GMscript.gameCompStatus = "Success!";
             SceneManager.LoadScene("LevelComplete");
         }
         if (other.gameObject.name == "roadstartTrig")
