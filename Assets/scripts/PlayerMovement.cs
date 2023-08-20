@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public float horVelocity = 0f;
     public string controlLocked = "no";  // a lock - when player is swiped to a place then until he reaches his position-
                                          // -swipe is locked
+
+    public Transform boomObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);  // destroy the player
             GMscript.zValueAdjustment = 0;
+            Instantiate(boomObj, transform.position, boomObj.rotation);
         }
         // if player collides with coin
         if (other.gameObject.name == "Coin")
