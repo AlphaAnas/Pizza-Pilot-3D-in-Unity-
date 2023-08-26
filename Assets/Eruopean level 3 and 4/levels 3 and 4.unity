@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278558, g: 0.21591476, b: 0.2978523, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,8 +191,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -270,8 +276,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu house (one side)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 8b8ce163937bcad4cbad5816c1c771a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 8b8ce163937bcad4cbad5816c1c771a6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8ce163937bcad4cbad5816c1c771a6, type: 3}
@@ -343,8 +355,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu house (one side) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 8b8ce163937bcad4cbad5816c1c771a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 8b8ce163937bcad4cbad5816c1c771a6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b8ce163937bcad4cbad5816c1c771a6, type: 3}
@@ -416,8 +434,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -565,9 +589,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -2655573560833850164, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -645,8 +675,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -818,8 +854,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -897,8 +939,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -976,8 +1024,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1090,8 +1144,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1169,8 +1229,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1248,8 +1314,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1327,8 +1399,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1441,8 +1519,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1520,8 +1604,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1599,8 +1689,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1678,8 +1774,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
@@ -1849,8 +1951,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: eu houses map (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506fe0ff3ca71f44e80a58ccfca3b83d, type: 3}
