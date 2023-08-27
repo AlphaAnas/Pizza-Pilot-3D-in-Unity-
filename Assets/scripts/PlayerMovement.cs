@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
                                          // -swipe is locked
 
     public Transform boomObj;
+
     // Start is called before the first frame update
     //void Start()
     //{
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //GetComponent<Rigidbody>().velocity = new Vector3(0,0, GMscript.forward); //we made a static variable in GM 
+        // GetComponent<Rigidbody>().velocity = new Vector3(0,0, GMscript.forward); //we made a static variable in GM 
         
      
         //if((Input.GetKeyDown(moveL) && (laneNo>-7)&&(controlLocked =="no"))) // it cannot move further left from first lane
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         //}
 
     }
-
+   
     // adding a pit 
     void OnCollisionEnter(Collision other)
 
@@ -76,30 +77,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name== "rampbottomTrig")
-        {
-            GMscript.vertVelocity = 2;
-            Debug.Log(GMscript.vertVelocity);
-        }
-        if (other.gameObject.name == "ramptopTrig")
-        {
-            GMscript.vertVelocity = 0;
-            Debug.Log(GMscript.vertVelocity);
-        }
+     
         if(other.gameObject.name == "gameEndTrig")
         {
             GMscript.gameCompStatus = "Success!";
-            SceneManager.LoadScene("LevelComplete");
+            SceneManager.LoadScene("levels 3 and 4");
         }
-        if (other.gameObject.name == "roadstartTrig")
-                {
-            GMscript.vertVelocity = 0;
-
-        }
-        if (other.gameObject.name=="rampEndTrig")
-        {
-            GMscript.vertVelocity = -2;
-        }
+   
         if (other.gameObject.name == "puddle")
         {
             Debug.Log("Add puddle script here");

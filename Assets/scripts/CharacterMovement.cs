@@ -11,12 +11,14 @@ public class SwipeControls3D : MonoBehaviour //used to detect the inputs on UI e
     public float movementSpeed = 80f;
     private Vector2 touchStartPos;
     private Vector2 touchEndPos;
+    public bool rotate = false;
     private int laneNo = 0;
 
     Rigidbody rb;
-    public float jumpPower =1000f;
+    public float jumpPower =500f;
     Vector2 startPoint, endPoint;
     bool canJump;
+    public float rotationSpeed = 90f;
 
     private float originalYVelocity;
     private float yourWaitTimeInSeconds = 0.05f;
@@ -66,7 +68,17 @@ public class SwipeControls3D : MonoBehaviour //used to detect the inputs on UI e
             }
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name== "rotateTrig")
+        {
+            rotate = true;
+        }
+    }
+    private void RotateCharacter()
+    {
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+    }
     private void DetectSwipe()
     {
         Vector2 swipeDelta = touchEndPos - touchStartPos;
@@ -75,12 +87,19 @@ public class SwipeControls3D : MonoBehaviour //used to detect the inputs on UI e
         {
             if (swipeDelta.x > 0)
             {
-                // Right swipe
-                if (laneNo < 3)
+                if (rotate)
                 {
-                    Debug.Log("Right swipe detected");
-                    laneNo += 1;
-                    MoveCharacter(Vector3.right * 10);
+                    RotateCharacter();
+                }
+                else
+                {
+                    // Right swipe
+                    if (laneNo < 3)
+                    {
+                        Debug.Log("Right swipe detected");
+                        laneNo += 1;
+                        MoveCharacter(Vector3.right * 10);
+                    }
                 }
             }
             else
@@ -107,7 +126,7 @@ public class SwipeControls3D : MonoBehaviour //used to detect the inputs on UI e
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(movementSpeed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+        rb.velocity = new Vector3(movementSpeed * Time.fixedDeltaTime, rb.velocity.y, GMscript.forward);
         if (canJump)
         {
             //StartCoroutine(JumpCoroutine());
