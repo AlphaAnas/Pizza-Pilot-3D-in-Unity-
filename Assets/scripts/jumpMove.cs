@@ -3,28 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class jumpMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler //used to detect the inputs on UI elements
-                                                                              // i.e. button )
+public class JumpMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public GameObject player;
-    bool isPressed = false;
-    public float Force;
-    void Update()
-    {// Update is called once per frame
-        if (isPressed)
-        {
-            player.transform.Translate(0, Force * Time.deltaTime, 0); // takes x,y and z to translate the player
-        }
+    private Rigidbody rb;
+    private Vector2 startTouchPosition, endTouchPosition;
+    private bool isPressed  = false;
+    private float jumpAllowed = false;
+    public float jumpForce;
+    public float movementSpeed = 5f;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        jumpForce = 300f;
     }
-    public void OnPointerDown(PointerEventData eventData) //when button is pressed
+
+    private void Update()
+    {
+        if(Input.TouchCount)
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
     {
         isPressed = true;
     }
-    public void OnPointerUp(PointerEventData eventData)//when button is released
+
+    public void OnPointerUp(PointerEventData eventData)
     {
         isPressed = false;
     }
 
-    
-   
+    private bool IsGrounded()
+    {
+        float distance = GetComponent<Collider>().bounds.extents.y + 0.1f;
+        return Physics.Raycast(transform.position, Vector3.down, distance);
+    }
 }

@@ -1,24 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-public class SwipeControls3D : MonoBehaviour
+using UnityEngine.EventSystems;
+public class SwipeControls3D : MonoBehaviour //used to detect the inputs on UI elements
+                                             // i.e. button )
 {
+
+
     public float swipeThreshold = 40f;
-    public float movementSpeed = 100f;
+    public float movementSpeed = 80f;
     private Vector2 touchStartPos;
     private Vector2 touchEndPos;
-    public float jumpForce = 8f; // Adjust the jump force as needed
-    public float gravity = -20f;
-    private Vector3 velocity;
+    private int laneNo = 0;
 
-   
+    Rigidbody rb;
+    public float jumpPower =1000f;
+    Vector2 startPoint, endPoint;
+    bool canJump;
+
+    private float originalYVelocity;
+    private float yourWaitTimeInSeconds = 0.05f;
 
     private void Start()
     {
-      
+
+        rb = GetComponent<Rigidbody>();
+        jumpPower = 1000f;
+
     }
 
     private void Update()
+
     {
+      
+        // GetComponent<Rigidbody>().velocity = new Vector3(0, 0, GMscript.forward);
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            startPoint = Input.GetTouch(0).position;
+        }
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            endPoint = Input.GetTouch(0).position;
+        }
+        if (endPoint.y > startPoint.y && rb.velocity.y == 0)
+        {
+            canJump = true;
+            startPoint = Vector2.zero;
+            endPoint = Vector2.zero;
+        }
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -46,39 +76,64 @@ public class SwipeControls3D : MonoBehaviour
             if (swipeDelta.x > 0)
             {
                 // Right swipe
-                Debug.Log("Right swipe detected");
-                MoveCharacter(Vector3.right*15);
+                if (laneNo < 3)
+                {
+                    Debug.Log("Right swipe detected");
+                    laneNo += 1;
+                    MoveCharacter(Vector3.right * 10);
+                }
             }
             else
             {
                 // Left swipe
-                Debug.Log("Left swipe detected");
-                MoveCharacter(Vector3.left*15);
+                if (laneNo > -3)
+                {
+                    Debug.Log("Left swipe detected");
+                    laneNo -= 1;
+                    MoveCharacter(Vector3.left * 10);
+                }
             }
         }
 
-        if (Mathf.Abs(swipeDelta.y) > swipeThreshold)
-        {
-            if (swipeDelta.y > 0)
-            {
-                // Up swipe
-                Debug.Log("Up swipe detected");
-                Jump();
-            }
-
-        }
     }
 
     private void MoveCharacter(Vector3 direction)
     {
         // Translate the character's position in the given direction
+
         transform.Translate(direction * movementSpeed * Time.deltaTime);
     }
 
-    private void Jump()
-    {
-        // jump controls
-    }
 
- 
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector3(movementSpeed * Time.fixedDeltaTime, rb.velocity.y, rb.velocity.z);
+        if (canJump)
+        {
+            //StartCoroutine(JumpCoroutine());
+            rb.AddForce(Vector3.up * jumpPower);
+            canJump = false;
+
+        }
+
+
+    }
+    //private IEnumerator JumpCoroutine()
+    //{
+    //    // Increase y velocity
+    //    rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+
+    //    // Wait for a certain time
+    //    Debug.Log("yahan tk");
+    //    yield return new WaitForSeconds(yourWaitTimeInSeconds);
+        
+
+    //    // Restore y velocity to normal
+    //    rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
+    //    Debug.Log("yeh xhala");
+    //    canJump = false;
+    //}
 }
+
+
+
