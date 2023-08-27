@@ -7,10 +7,12 @@ public class GMscript : MonoBehaviour
 {
     // Start is called before the first frame update
     public static float vertVelocity = 0;
+    public static float forward = 10;
     public static int coinTotal=102; // this static variable can be used in different scirpts 
     public static float timeTotal = 0f;
     public static float zValueAdjustment = 1;
     public static string gameCompStatus = "";
+    public static float horVelocity = 0;
     public float waitToLoad = 0;
     void Start()
     {
