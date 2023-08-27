@@ -9,7 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode moveL;
     public KeyCode moveR;
     public KeyCode jump;
-  
+
+    private Touch touch;
+
+    public float moveSpeed = 0.01f;
+
 
     public int laneNo = 2; 
     public string controlLocked = "no";  // a lock - when player is swiped to a place then until he reaches his position-
@@ -17,18 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform boomObj;
     // Start is called before the first frame update
-    void Start()
-    {
+    //void Start()
+    //{
         
-    }
+    //}
 
     // Update is called once per frame
     void Update()
     {
         GetComponent<Rigidbody>().velocity = new Vector3(GMscript.horVelocity,GMscript.vertVelocity, GMscript.forward); //we made a static variable in GM 
-                                                                                                 // script and are able to access it here
-
-        if((Input.GetKeyDown(moveL) && (laneNo>-6)&&(controlLocked =="no"))) // it cannot move further left from first lane
+        
+     
+        if((Input.GetKeyDown(moveL) && (laneNo>-7)&&(controlLocked =="no"))) // it cannot move further left from first lane
         {
             Debug.Log("left");
             GMscript.horVelocity = -7f;
@@ -36,10 +40,11 @@ public class PlayerMovement : MonoBehaviour
             laneNo -= 1;
             controlLocked = "yes";
         }
-        if ((Input.GetKeyDown(moveR) && (laneNo<6) && (controlLocked == "no"))) // it cannot move further right from first lane
+        if ((Input.GetKeyDown(moveR) && (laneNo<7) && (controlLocked == "no"))) // it cannot move further right from first lane
         {
             Debug.Log("right");
             GMscript.horVelocity = 7f;
+            
             StartCoroutine(stopSlide()); // goto the below named function/ ENUMERATOR
             laneNo += 1;
             controlLocked = "yes";
@@ -56,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);  // destroy the player
             GMscript.forward=0;
+            GMscript.horVelocity=0;
+            GMscript.vertVelocity = 0;
             Instantiate(boomObj, transform.position, boomObj.rotation);
             GMscript.gameCompStatus = "Failed";
         }
@@ -101,8 +108,9 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator stopSlide()
     {
         Debug.Log("the below function worked");
-        yield return new WaitForSeconds(0.25f); // w8 for half a second
-        GMscript.horVelocity = 0f;            // stop the horizontal velocity
+        yield return new WaitForSeconds(0.2f); // w8 for half a second
+        GMscript.horVelocity = 0f;// stop the horizontal velocity
+        GMscript.forward = 10f;
         controlLocked = "no";
     }
 }

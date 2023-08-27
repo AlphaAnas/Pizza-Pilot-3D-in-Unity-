@@ -1,58 +1,84 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable] // this is used to save values of Enum as below
-// ------------INACTIVE -----------------------------//
-public enum SIDE {Left, Mid, Right }    // we made a new data type like int and its values are in braces
-                                        // and can be called like SIDE value = SIDE.Left;
-public class CharacterMovement : MonoBehaviour
+public class SwipeControls3D : MonoBehaviour
 {
-    public SIDE CurrSide = SIDE.Mid; // default value of player is middle
-    float newXPos = 0f;
-    public bool swipeLeft= false;
-    public bool swipeRight= false;
-    public float XValue;
-    private CharacterController m_char;
-    
+    public float swipeThreshold = 40f;
+    public float movementSpeed = 100f;
+    private Vector2 touchStartPos;
+    private Vector2 touchEndPos;
+    public float jumpForce = 8f; // Adjust the jump force as needed
+    public float gravity = -20f;
+    private Vector3 velocity;
 
-    // Start is called before the first frame update
-    void Start()
-    {   
-        m_char = GetComponent<CharacterController>();   //used to move the character
-        transform.position = Vector3.zero;  // initial pos to (0,0,0)
+   
+
+    private void Start()
+    {
+      
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        //Debug.log("hello");
-        swipeLeft = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
-        swipeRight = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
-
-        if(swipeLeft)
+        if (Input.touchCount > 0)
         {
-            if(CurrSide == SIDE.Mid)
+            Touch touch = Input.GetTouch(0);
+
+            switch (touch.phase)
             {
-                newXPos = -XValue;
-            }
-            else if(CurrSide == SIDE.Right)
-            {
-                newXPos = 0;
+                case TouchPhase.Began:
+                    touchStartPos = touch.position;
+                    break;
+
+                case TouchPhase.Ended:
+                    touchEndPos = touch.position;
+                    DetectSwipe();
+                    break;
             }
         }
-        else if (swipeRight)
+    }
+
+    private void DetectSwipe()
+    {
+        Vector2 swipeDelta = touchEndPos - touchStartPos;
+
+        if (Mathf.Abs(swipeDelta.x) > swipeThreshold)
         {
-            if (CurrSide == SIDE.Mid)
+            if (swipeDelta.x > 0)
             {
-                newXPos = XValue;
+                // Right swipe
+                Debug.Log("Right swipe detected");
+                MoveCharacter(Vector3.right*15);
             }
-            else if (CurrSide == SIDE.Left)
+            else
             {
-                newXPos = 0;
+                // Left swipe
+                Debug.Log("Left swipe detected");
+                MoveCharacter(Vector3.left*15);
             }
         }
-        m_char.Move((newXPos - transform.position.x) * Vector3.right);
 
-    }  
+        if (Mathf.Abs(swipeDelta.y) > swipeThreshold)
+        {
+            if (swipeDelta.y > 0)
+            {
+                // Up swipe
+                Debug.Log("Up swipe detected");
+                Jump();
+            }
+
+        }
+    }
+
+    private void MoveCharacter(Vector3 direction)
+    {
+        // Translate the character's position in the given direction
+        transform.Translate(direction * movementSpeed * Time.deltaTime);
+    }
+
+    private void Jump()
+    {
+        // jump controls
+    }
+
+ 
 }
